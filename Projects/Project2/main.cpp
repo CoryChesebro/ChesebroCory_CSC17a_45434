@@ -2,18 +2,17 @@
 #include <cstdlib>
 
 
-
 #include "Dealer.cpp"
+#include "User.cpp"
 
 int main() {
 
     Game game;
-    Player<int> player;
     
     Dealer<int> dealer;
+    User<float> player;
     
     dealer.getCard(game);
-    
     player.getCard(game);
     
     return 0;

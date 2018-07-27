@@ -16,18 +16,6 @@
 #include "Game.h"
 
 template<class T>
-Player<T>::Player() {
-}
-
-template<class T>
-Player<T>::Player(const Player& orig) {
-}
-
-template<class T>
-Player<T>::~Player() {
-}
-
-template<class T>
 void Player<T>::getCard(const Game &game){
     std::cout<<game.card;
 }

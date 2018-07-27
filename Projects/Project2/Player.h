@@ -15,26 +15,33 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+// Class forwarding for friendship
 class Game;
 
+// Template used for money variable either float or int 
 template<class T>
+
+// Abstract base class for Dealer and User
 class Player {
+
+// Public members    
 public:
-    Player();
-    Player(const Player& orig);
-    virtual ~Player();
-    
+    // Friend function to get card from game object
     void getCard(const Game&);
     
-private:
-    
+// Protected members - for the child classes
 protected:
+    
+    // Template for the money type
     T money;
     
+    // Pointer to a char array for the players hand
     char *hand;
+    // Size variable for the players hand
     int size;
-
+    
+    // Operator overloading, going to be used to add cards to the hand
+    void operator++();
 };
 
 #endif /* PLAYER_H */
-

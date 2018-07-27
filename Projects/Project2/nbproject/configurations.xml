@@ -4,11 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>AircraftCarrier.h</itemPath>
       <itemPath>Dealer.h</itemPath>
       <itemPath>Game.h</itemPath>
       <itemPath>Player.h</itemPath>
-      <itemPath>Ship.h</itemPath>
+      <itemPath>User.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -17,11 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>AircraftCarrier.cpp</itemPath>
       <itemPath>Dealer.cpp</itemPath>
       <itemPath>Game.cpp</itemPath>
       <itemPath>Player.cpp</itemPath>
-      <itemPath>Ship.cpp</itemPath>
+      <itemPath>User.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -46,10 +44,6 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="AircraftCarrier.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="AircraftCarrier.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Dealer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Dealer.h" ex="false" tool="3" flavor2="0">
@@ -62,9 +56,9 @@
       </item>
       <item path="Player.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Ship.cpp" ex="false" tool="1" flavor2="0">
+      <item path="User.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Ship.h" ex="false" tool="3" flavor2="0">
+      <item path="User.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -89,10 +83,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="AircraftCarrier.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="AircraftCarrier.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Dealer.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Dealer.h" ex="false" tool="3" flavor2="0">
@@ -105,9 +95,9 @@
       </item>
       <item path="Player.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Ship.cpp" ex="false" tool="1" flavor2="0">
+      <item path="User.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Ship.h" ex="false" tool="3" flavor2="0">
+      <item path="User.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

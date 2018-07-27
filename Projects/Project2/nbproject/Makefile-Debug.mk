@@ -35,11 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/AircraftCarrier.o \
 	${OBJECTDIR}/Dealer.o \
 	${OBJECTDIR}/Game.o \
 	${OBJECTDIR}/Player.o \
-	${OBJECTDIR}/Ship.o \
+	${OBJECTDIR}/User.o \
 	${OBJECTDIR}/main.o
 
 
@@ -67,11 +66,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/project2.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/project2 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/AircraftCarrier.o: AircraftCarrier.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AircraftCarrier.o AircraftCarrier.cpp
-
 ${OBJECTDIR}/Dealer.o: Dealer.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -87,10 +81,10 @@ ${OBJECTDIR}/Player.o: Player.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Player.o Player.cpp
 
-${OBJECTDIR}/Ship.o: Ship.cpp
+${OBJECTDIR}/User.o: User.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Ship.o Ship.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/User.o User.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

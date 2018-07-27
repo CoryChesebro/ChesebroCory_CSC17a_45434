@@ -17,12 +17,16 @@
 
 Game::Game() {
     card = 'A';
+    size = 2;
+    deck = new char[size];
+    
 }
 
 Game::Game(const Game& orig) {
 }
 
 Game::~Game() {
+    delete [] deck;
 }
 
 char Game::genCard(){
