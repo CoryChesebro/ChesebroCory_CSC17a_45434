@@ -72,7 +72,6 @@ void Dealer<T>::chkTotal(){
             case 'A': aceCnt += 1;break;
             default: std::cout<<"Something is wrong in your chkTotal function";
         }
-        std::cout<<total<<" ";
     }
     
     for(int i = 0; i < aceCnt; i++){
@@ -81,7 +80,6 @@ void Dealer<T>::chkTotal(){
     
     this->total = total;
     
-    std::cout<<"Size :"<<this->size<<" total :"<<total;
     
 }
 
@@ -94,7 +92,8 @@ void Dealer<T>::genHand(const Game &game){
 
 template<class T>
 void Dealer<T>::prntTotal(){
-    std::cout<<"print called"<<std::endl;
+    std::cout<<"print called "<<std::endl;
+    std::cout<<this->hand[0]<<" "<<this->hand[1]<<std::endl;
     chkTotal();
-    //std::cout<<this->total;
+    std::cout<<this->total;
 }

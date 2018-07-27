@@ -20,8 +20,6 @@ public:
     
     template <typename T> friend char Player<T>::genCard(const Game&);
     
-    
-    
 private:
     char card;// For testing
     
