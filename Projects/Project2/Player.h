@@ -21,7 +21,7 @@ class Player {
 // Public members    
 public:
     // Friend function to get card from game object
-    void getCard(const Game&);
+    char genCard(const Game&);
     
     // Virtual function that gets redefined in child class
     virtual void chkTotal() = 0;

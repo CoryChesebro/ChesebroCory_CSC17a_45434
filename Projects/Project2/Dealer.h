@@ -18,6 +18,9 @@ public:
     virtual ~Dealer();
     
     void chkTotal() override;
+    void genHand(const Game&);
+    void prntTotal();
+    
 private:
     void operator++() override;
     void operator--() override;

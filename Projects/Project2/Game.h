@@ -17,11 +17,10 @@ public:
     Game(const Game& orig);
     virtual ~Game();
     
-    char genCard();
     
-    template <typename T> friend void Player<T>::getCard(const Game&);
+    template <typename T> friend char Player<T>::genCard(const Game&);
     
-    void shrink(int);
+    
     
 private:
     char card;// For testing

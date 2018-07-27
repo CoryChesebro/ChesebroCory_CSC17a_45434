@@ -10,6 +10,23 @@
 #include "Game.h"
 
 template<class T>
-void Player<T>::getCard(const Game &game){
-    std::cout<<game.card;
+// Function returns a char which is a card that can be put into the players hand
+char Player<T>::genCard(const Game &game){
+    bool valid;
+    int random;
+    char card;
+    
+    do{
+        valid = true;
+        random = rand() % game.size;
+        card = game.deck[random];
+        if(card == '*'){
+            valid = false;
+        }
+        else{
+            game.deck[random] = '*';
+        }
+    }while(!valid);
+    
+    return card;
 }
