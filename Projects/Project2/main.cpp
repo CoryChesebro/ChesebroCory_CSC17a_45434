@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdlib>
+#include <iostream>
+#include <cstdlib>
 
 
 #include "Dealer.cpp"
@@ -10,7 +12,7 @@ int main() {
     Game game;
     
     Dealer<int> dealer;
-    User<float> player;
+    User<int> player;
     
     dealer.getCard(game);
     player.getCard(game);

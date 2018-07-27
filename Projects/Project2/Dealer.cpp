@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   Dealer.cpp
  * Author: Cory
@@ -15,13 +9,33 @@
 
 template<class T>
 Dealer<T>::Dealer() {
+    this->size = 2;
+
+    this->hand = new char[this->size];
+    
+    this->money = 0;
 }
 
 template<class T>
 Dealer<T>::Dealer(const Dealer& orig) {
+    this->size = orig.size;
+    this->hand = orig.hand;
+    
+    this->money = orig.money;
 }
 
 template<class T>
 Dealer<T>::~Dealer() {
+    
+    delete [] this->hand;
 }
 
+template<class T>
+void Dealer<T>::operator++(){
+    
+}
+
+template<class T>
+void Dealer<T>::operator--(){
+    
+}

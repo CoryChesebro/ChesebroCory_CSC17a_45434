@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   Player.h
  * Author: Cory
@@ -41,7 +35,10 @@ protected:
     int size;
     
     // Operator overloading, going to be used to add cards to the hand
-    void operator++();
+    virtual void operator++() = 0;
+    
+    // Take cards away from the hand
+    virtual void operator--() = 0;
 };
 
 #endif /* PLAYER_H */
