@@ -1,0 +1,4 @@
+hello world
+hello hector
+hello lehr
+goodbye all
