@@ -17,9 +17,10 @@ public:
     Dealer(const Dealer& orig);
     virtual ~Dealer();
     
+    void chkTotal() override;
 private:
-    void operator++();
-    void operator--();
+    void operator++() override;
+    void operator--() override;
     
     
 };

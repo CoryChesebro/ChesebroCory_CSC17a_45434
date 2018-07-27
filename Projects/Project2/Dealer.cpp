@@ -13,7 +13,7 @@ Dealer<T>::Dealer() {
 
     this->hand = new char[this->size];
     
-    this->money = 0;
+    this->money = 500;
 }
 
 template<class T>
@@ -37,5 +37,10 @@ void Dealer<T>::operator++(){
 
 template<class T>
 void Dealer<T>::operator--(){
+    
+}
+
+template<class T>
+void Dealer<T>::chkTotal(){
     
 }

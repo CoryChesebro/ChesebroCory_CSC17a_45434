@@ -15,6 +15,7 @@ int main() {
     User<int> player;
     
     dealer.getCard(game);
+    std::cout<<" \n";
     player.getCard(game);
     
     return 0;

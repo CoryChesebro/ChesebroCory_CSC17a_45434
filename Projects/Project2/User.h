@@ -17,9 +17,13 @@ public:
     User(const User& orig);
     virtual ~User();
     
+    void hit();
+    void stand();
+    void chkTotal() override;
+    
 private:
-    void operator++();
-    void operator--();
+    void operator++() override;
+    void operator--() override;
 };
 
 #endif /* USER_H */

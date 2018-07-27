@@ -23,8 +23,13 @@ public:
     // Friend function to get card from game object
     void getCard(const Game&);
     
+    // Virtual function that gets redefined in child class
+    virtual void chkTotal() = 0;
+    
 // Protected members - for the child classes
 protected:
+    // Int to hold total value of the hand
+    int total;
     
     // Template for the money type
     T money;

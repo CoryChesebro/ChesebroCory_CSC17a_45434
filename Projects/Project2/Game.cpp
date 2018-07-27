@@ -18,6 +18,9 @@ Game::Game() {
 }
 
 Game::Game(const Game& orig) {
+    this->card = orig.card;
+    this->deck = orig.deck;
+    this->size = orig.size;
 }
 
 Game::~Game() {
