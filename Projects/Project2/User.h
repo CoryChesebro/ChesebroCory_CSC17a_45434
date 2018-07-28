@@ -10,6 +10,8 @@
 
 #include "Player.h"
 
+class Game;
+
 template<class T>
 class User : public Player<T>{
 public:
@@ -17,13 +19,17 @@ public:
     User(const User& orig);
     virtual ~User();
     
-    void hit();
+    void hit(const Game&);
     void stand();
-    void chkTotal() override;
     
-private:
-    void operator++() override;
+    void chkTotal() override;
+    void genHand(const Game&);
+    void prntTotal();
+    
+    void operator++(int) override;
     void operator--() override;
+private:
+
 };
 
 #endif /* USER_H */

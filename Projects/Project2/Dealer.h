@@ -8,7 +8,8 @@
 #ifndef DEALER_H
 #define DEALER_H
 
-#include "Player.cpp"
+#include "Player.h"
+#include "Game.h"
 
 template<class T>
 class Dealer : public Player <T>{
@@ -21,9 +22,10 @@ public:
     void genHand(const Game&);
     void prntTotal();
     
-private:
-    void operator++() override;
+    void operator++(int) override;
     void operator--() override;
+private:
+
     
     
 };

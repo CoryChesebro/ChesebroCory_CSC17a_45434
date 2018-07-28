@@ -5,13 +5,14 @@
  * Created on July 26, 2018, 2:45 AM
  */
 
+#include "Dealer.cpp"
+#include "User.cpp"
 #include "Game.h"
 
 #include <iostream>
 
 //Default constructor
 Game::Game() {
-    std::cout<<"game constructed"<<std::endl;
     card = 'A';
     
     size = 52;

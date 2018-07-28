@@ -9,6 +9,8 @@
 #define GAME_H
 
 #include "Player.h"
+#include "Dealer.h"
+#include "User.h"
 
 
 class Game {
@@ -17,6 +19,8 @@ public:
     Game(const Game& orig);
     virtual ~Game();
     
+    User<int> player;
+    Dealer<int> dealer;
     
     template <typename T> friend char Player<T>::genCard(const Game&);
     

@@ -40,7 +40,7 @@ protected:
     int size;
     
     // Operator overloading, going to be used to add cards to the hand
-    virtual void operator++() = 0;
+    virtual void operator++(int) = 0;
     
     // Take cards away from the hand
     virtual void operator--() = 0;

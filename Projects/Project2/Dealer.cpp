@@ -7,16 +7,14 @@
 
 #include <iostream>
 
+#include "Player.cpp"
 #include "Dealer.h"
 
 
 
 template<class T>
 Dealer<T>::Dealer() {
-    std::cout<<"Dealer constructed";
-    
-    this->total = 72;
-    
+
     this->size = 2;
 
     this->hand = new char[this->size];
@@ -39,7 +37,7 @@ Dealer<T>::~Dealer() {
 }
 
 template<class T>
-void Dealer<T>::operator++(){
+void Dealer<T>::operator++(int){
     
 }
 
@@ -87,13 +85,10 @@ template<class T>
 void Dealer<T>::genHand(const Game &game){
     this->hand[0] = this->genCard(game);
     this->hand[1] = this->genCard(game);
-    std::cout<<"Gen hand called";
 }
 
 template<class T>
 void Dealer<T>::prntTotal(){
-    std::cout<<"print called "<<std::endl;
-    std::cout<<this->hand[0]<<" "<<this->hand[1]<<std::endl;
     chkTotal();
     std::cout<<this->total;
 }

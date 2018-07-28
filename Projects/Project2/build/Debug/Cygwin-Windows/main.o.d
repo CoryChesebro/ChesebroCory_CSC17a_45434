@@ -1,9 +1,7 @@
-build/Debug/Cygwin-Windows/main.o: main.cpp Dealer.cpp Dealer.h \
- Player.cpp Game.h Player.h User.cpp User.h
+build/Debug/Cygwin-Windows/main.o: main.cpp Dealer.cpp Player.cpp Game.h \
+ Player.h Dealer.h User.h User.cpp
 
 Dealer.cpp:
-
-Dealer.h:
 
 Player.cpp:
 
@@ -11,6 +9,8 @@ Game.h:
 
 Player.h:
 
-User.cpp:
+Dealer.h:
 
 User.h:
+
+User.cpp:
