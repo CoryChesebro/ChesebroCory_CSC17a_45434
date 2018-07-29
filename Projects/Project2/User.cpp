@@ -131,3 +131,13 @@ void User<T>::printHand(){
         std::cout<<this->hand[i]<<" ";
     }
 }
+
+template<class T>
+bool User<T>::isBusted(){
+    return this->bust;
+}
+
+template<class T>
+bool User<T>::hasBJ(){
+    return this->bj;
+}

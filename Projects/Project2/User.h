@@ -29,6 +29,9 @@ public:
     
     int getTotal();
     
+    bool isBusted();
+    bool hasBJ();
+    
     
     
     void operator++(int) override;

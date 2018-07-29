@@ -35,7 +35,6 @@ Dealer<T>::Dealer(const Dealer& orig) {
 
 template<class T>
 Dealer<T>::~Dealer() {
-    
     delete [] this->hand;
 }
 
@@ -121,4 +120,15 @@ template<class T>
 int Dealer<T>::getTotal(){
     chkTotal();
     return this->total;
+}
+
+template<class T>
+bool Dealer<T>::isBusted(){
+    chkTotal();
+    if(this->total > 21){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

@@ -26,6 +26,8 @@ public:
     
     int getTotal();
     
+    bool isBusted();
+    
     void operator++(int) override;
     void operator--() override;
 private:
