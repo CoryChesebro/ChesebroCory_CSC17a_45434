@@ -13,6 +13,7 @@
 
 //Default constructor
 Game::Game() {
+
     card = 'A';
     
     size = 52;

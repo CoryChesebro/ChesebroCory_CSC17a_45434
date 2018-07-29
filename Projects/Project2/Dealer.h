@@ -22,6 +22,8 @@ public:
     void genHand(const Game&);
     void prntTotal();
     
+    void hit(const Game&);
+    
     void operator++(int) override;
     void operator--() override;
 private:

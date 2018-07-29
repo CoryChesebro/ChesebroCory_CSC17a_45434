@@ -14,7 +14,10 @@
 
 template<class T>
 Dealer<T>::Dealer() {
-
+    this->bust = false;
+    
+    this->bj = false;
+    
     this->size = 2;
 
     this->hand = new char[this->size];
@@ -38,7 +41,14 @@ Dealer<T>::~Dealer() {
 
 template<class T>
 void Dealer<T>::operator++(int){
+    this->size++;
+    char *temp = new char[this->size];
     
+    for(int i = 0; i < this->size - 1; i++){
+        temp[i] = this->hand[i];
+    }
+    
+    this->hand = temp;
 }
 
 template<class T>
@@ -75,10 +85,7 @@ void Dealer<T>::chkTotal(){
     for(int i = 0; i < aceCnt; i++){
         ((total + 11) > 21)?(total += 1):(total += 11);
     }
-    
-    this->total = total;
-    
-    
+    this->total = total; 
 }
 
 template<class T>
@@ -91,4 +98,9 @@ template<class T>
 void Dealer<T>::prntTotal(){
     chkTotal();
     std::cout<<this->total;
+}
+
+template<class T>
+void Dealer<T>::hit(const Game&){
+    
 }

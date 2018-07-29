@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <iostream>
-#include <cstdlib>
 #include <ctime>
 
 
@@ -17,18 +15,13 @@ int main() {
     
     Game game;
     
-//    game.dealer.genHand(game);
-//    game.dealer.prntTotal();
-//    std::cout<<std::endl;
-    
     game.player.genHand(game);
     game.player.prntTotal();
+
+    game.dealer.genHand(game);
+    game.dealer.prntTotal();
+    
     std::cout<<std::endl;
-    
-    game.player++;
-    game.player.hit(game);
-    game.player.prntTotal();
-    
     
 
     

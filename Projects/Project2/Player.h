@@ -28,6 +28,12 @@ public:
     
 // Protected members - for the child classes
 protected:
+    // Flag to indicate if the player busted
+    bool bust;
+    
+    // Flag to indicate if the player has a blackjack
+    bool bj;
+    
     // Int to hold total value of the hand
     int total;
     

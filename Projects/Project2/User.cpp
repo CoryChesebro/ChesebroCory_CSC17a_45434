@@ -13,6 +13,11 @@
 
 template<class T>
 User<T>::User() {
+
+    this->bust = false;
+    
+    this->bj = false;
+    
     this->size = 2;
 
     this->hand = new char[this->size];
@@ -21,7 +26,6 @@ User<T>::User() {
 }
 
 // Copy constructor
-
 template<class T>
 User<T>::User(const User& orig) {
     this->size = orig.size;
@@ -31,7 +35,6 @@ User<T>::User(const User& orig) {
 }
 
 // Deconstructor
-
 template<class T>
 User<T>::~User() {
 
@@ -39,6 +42,8 @@ User<T>::~User() {
     delete [] this->hand;
 }
 
+// This operator expands the hand array getting it ready for the addition
+// of a new card when the player hits
 template<class T>
 void User<T>::operator++(int) {
     this->size++;
@@ -63,12 +68,17 @@ void User<T>::hit(const Game &game){
 
 template<class T>
 void User<T>::stand(){
-    
+    if(this->total > 21){
+        this->bust = true;
+    }
+    else if(this->total == 21){
+        this->bj = true;
+    }
 }
 
 template<class T>
 void User<T>::chkTotal(){
-        int total = 0;
+    int total = 0;
     int arrSize = this->size;
     int aceCnt = 0;
     
@@ -91,11 +101,9 @@ void User<T>::chkTotal(){
             default: std::cout<<"Something is wrong in your chkTotal function";
         }
     }
-    
     for(int i = 0; i < aceCnt; i++){
         ((total + 11) > 21)?(total += 1):(total += 11);
     }
-    
     this->total = total;
 }
 
