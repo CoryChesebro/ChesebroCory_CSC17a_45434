@@ -24,6 +24,8 @@ public:
     
     void hit(const Game&);
     
+    int getTotal();
+    
     void operator++(int) override;
     void operator--() override;
 private:

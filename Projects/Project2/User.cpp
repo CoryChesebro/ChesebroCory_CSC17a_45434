@@ -118,3 +118,16 @@ void User<T>::genHand(const Game &game){
     this->hand[0] = this->genCard(game);
     this->hand[1] = this->genCard(game);
 }
+
+template<class T>
+int User<T>::getTotal(){
+    chkTotal();
+    return this->total;
+}
+
+template<class T>
+void User<T>::printHand(){
+    for(int i = 0; i < this->size; i++){
+        std::cout<<this->hand[i]<<" ";
+    }
+}

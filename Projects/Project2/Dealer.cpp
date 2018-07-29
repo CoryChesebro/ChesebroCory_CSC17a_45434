@@ -101,6 +101,24 @@ void Dealer<T>::prntTotal(){
 }
 
 template<class T>
-void Dealer<T>::hit(const Game&){
-    
+void Dealer<T>::hit(const Game& game){
+    while(this->total < 17){
+        this->size++;
+        char *temp = new char[this->size];
+
+        for(int i = 0; i < this->size - 1; i++){
+            temp[i] = this->hand[i];
+        }
+
+        this->hand = temp;
+        
+        this->hand[this->size - 1] = this->genCard(game);
+        chkTotal();
+    }
+}
+
+template<class T>
+int Dealer<T>::getTotal(){
+    chkTotal();
+    return this->total;
 }

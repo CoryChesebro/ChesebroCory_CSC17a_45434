@@ -25,6 +25,11 @@ public:
     void chkTotal() override;
     void genHand(const Game&);
     void prntTotal();
+    void printHand();
+    
+    int getTotal();
+    
+    
     
     void operator++(int) override;
     void operator--() override;

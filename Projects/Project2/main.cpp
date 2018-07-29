@@ -7,24 +7,19 @@
 #include "User.cpp"
 
 
+void gmLoop(const Game&);
+
 int main() {
     // Seed the random num generator
     srand(static_cast<unsigned int>(time(0)));
-    
-    
-    
+
     Game game;
-    
-    game.player.genHand(game);
-    game.player.prntTotal();
 
-    game.dealer.genHand(game);
-    game.dealer.prntTotal();
-    
-    std::cout<<std::endl;
-    
-
+    gmLoop(game);
     
     return 0;
 }
 
+void gmLoop(const Game &game){
+    
+}
