@@ -141,3 +141,33 @@ template<class T>
 bool User<T>::hasBJ(){
     return this->bj;
 }
+
+template<class T>
+T User<T>::getMoney(){
+    return this->money;
+}
+
+template<class T>
+void User<T>::setMoney(T bet, bool won){
+    if(this->bust || !won){
+        this->money -= bet;
+    }
+    else if(this->bj){
+        this->money = bet * 3 / 2;
+    }
+    else{
+        this->money += bet;
+    }
+}
+
+template<class T>
+void User<T>::reset(const Game &game){
+    this->hand = nullptr;
+    this->size = 2;
+    
+    this->hand = new char[this->size];
+    this->genHand(game);
+    
+    this->bust = false;
+    this->bj = false;
+}

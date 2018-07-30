@@ -1,0 +1,47 @@
+\hypertarget{class_dealer}{}\section{Dealer$<$ T $>$ Class Template Reference}
+\label{class_dealer}\index{Dealer$<$ T $>$@{Dealer$<$ T $>$}}
+
+
+Inheritance diagram for Dealer$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Dealer$<$ T $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dealer_aff6d17c7752adcbc772387fcde2abe8c}\label{class_dealer_aff6d17c7752adcbc772387fcde2abe8c}} 
+{\bfseries Dealer} (const \mbox{\hyperlink{class_dealer}{Dealer}} \&orig)
+\item 
+\mbox{\Hypertarget{class_dealer_ac8a9e2b9b85c16a89485828aeb9aeaea}\label{class_dealer_ac8a9e2b9b85c16a89485828aeb9aeaea}} 
+void {\bfseries chk\+Total} () override
+\item 
+\mbox{\Hypertarget{class_dealer_a8db6b1146625ed2c17db202306a27e43}\label{class_dealer_a8db6b1146625ed2c17db202306a27e43}} 
+void {\bfseries gen\+Hand} (const \mbox{\hyperlink{class_game}{Game}} \&)
+\item 
+\mbox{\Hypertarget{class_dealer_aab3fc6016b1d1025b37b47cb537adce9}\label{class_dealer_aab3fc6016b1d1025b37b47cb537adce9}} 
+void {\bfseries prnt\+Total} ()
+\item 
+\mbox{\Hypertarget{class_dealer_a34982ba87265d0fb258074d6d40e30de}\label{class_dealer_a34982ba87265d0fb258074d6d40e30de}} 
+void {\bfseries hit} (const \mbox{\hyperlink{class_game}{Game}} \&)
+\item 
+\mbox{\Hypertarget{class_dealer_a58c9f6a8ffcf80b2b46d455c3992d2ce}\label{class_dealer_a58c9f6a8ffcf80b2b46d455c3992d2ce}} 
+int {\bfseries get\+Total} ()
+\item 
+\mbox{\Hypertarget{class_dealer_a505712693cf462a07dd166f9bc83729b}\label{class_dealer_a505712693cf462a07dd166f9bc83729b}} 
+bool {\bfseries is\+Busted} ()
+\item 
+\mbox{\Hypertarget{class_dealer_a4425aecd1c3643743887776e37cac2ec}\label{class_dealer_a4425aecd1c3643743887776e37cac2ec}} 
+void {\bfseries operator++} (int) override
+\item 
+\mbox{\Hypertarget{class_dealer_a8497cc0819416907d4c7496fd880627a}\label{class_dealer_a8497cc0819416907d4c7496fd880627a}} 
+void {\bfseries operator-\/-\/} () override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Dealer.\+h\item 
+Dealer.\+cpp\end{DoxyCompactItemize}

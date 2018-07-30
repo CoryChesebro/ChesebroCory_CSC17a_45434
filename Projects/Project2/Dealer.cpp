@@ -14,17 +14,21 @@
 
 template<class T>
 Dealer<T>::Dealer() {
+    // flag to determine if dealer went over 21
     this->bust = false;
     
+    // flag to determine if dealer got 21
     this->bj = false;
     
+    // Sets initial hand size
     this->size = 2;
 
+    // Create hand array 
     this->hand = new char[this->size];
     
-    this->money = 500;
 }
 
+// Copy constructor
 template<class T>
 Dealer<T>::Dealer(const Dealer& orig) {
     this->size = orig.size;
@@ -33,10 +37,13 @@ Dealer<T>::Dealer(const Dealer& orig) {
     this->money = orig.money;
 }
 
+// Deconstructor
 template<class T>
 Dealer<T>::~Dealer() {
+    // Get rid of dynamically allocated mem
     delete [] this->hand;
 }
+
 
 template<class T>
 void Dealer<T>::operator++(int){
@@ -55,6 +62,7 @@ void Dealer<T>::operator--(){
     
 }
 
+// Turns the card values into an integer used for comparison
 template<class T>
 void Dealer<T>::chkTotal(){
     int total = 0;
@@ -80,10 +88,11 @@ void Dealer<T>::chkTotal(){
             default: std::cout<<"Something is wrong in your chkTotal function";
         }
     }
-    
+    // Makes sure to count ace towards players advantage
     for(int i = 0; i < aceCnt; i++){
         ((total + 11) > 21)?(total += 1):(total += 11);
     }
+    
     this->total = total; 
 }
 
@@ -131,4 +140,16 @@ bool Dealer<T>::isBusted(){
     else{
         return false;
     }
+}
+
+template<class T>
+void Dealer<T>::reset(const Game &game){
+    this->hand = nullptr;
+    this->size = 2;
+    
+    this->hand = new char[this->size];
+    this->genHand(game);
+    
+    this->bust = false;
+    this->bj = false;
 }

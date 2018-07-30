@@ -17,10 +17,13 @@ class Game {
 public:
     Game();
     Game(const Game& orig);
+    
     virtual ~Game();
     
     User<int> player;
     Dealer<int> dealer;
+    
+    void reset();
     
     template <typename T> friend char Player<T>::genCard(const Game&);
     

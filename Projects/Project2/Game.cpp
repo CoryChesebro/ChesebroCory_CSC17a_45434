@@ -45,3 +45,8 @@ Game::Game(const Game& orig) {
 Game::~Game() {
     delete [] deck;
 }
+
+void Game::reset(){
+    Game game;
+    this->deck = game.deck;
+}

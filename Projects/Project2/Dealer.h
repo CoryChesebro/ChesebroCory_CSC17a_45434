@@ -23,6 +23,7 @@ public:
     void prntTotal();
     
     void hit(const Game&);
+    void reset(const Game&);
     
     int getTotal();
     

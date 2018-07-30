@@ -21,6 +21,8 @@ public:
     
     void hit(const Game&);
     void stand();
+    void reset(const Game&);
+    
     
     void chkTotal() override;
     void genHand(const Game&);
@@ -32,6 +34,8 @@ public:
     bool isBusted();
     bool hasBJ();
     
+    T getMoney();
+    void setMoney(T, bool);
     
     
     void operator++(int) override;

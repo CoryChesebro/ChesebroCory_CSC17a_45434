@@ -28,70 +28,162 @@ void gmLoop(Game &game){
     game.dealer.genHand(game);
     
     std::string input;
+    int total;
+    int temp = 0;
     bool valid;
+    bool won;
+    bool pAgain;
+    bool bet = false;
+    
+    std::cout<<"Would you like betting to be available during your game?: y/n ";
+    std::cin>>input;
+    std::cin.ignore();
+    if(input[0] == 'y'){
+        std::cout<<"Betting enabled!"<<std::endl;
+        bet = true;
+    }
+    else{
+        std::cout<<"Betting disabled."<<std::endl;
+    }
+    
+    input = "";
+    
+
     
     do{
-        valid = true;
-        input = "";
+        pAgain = false;
+        won = false;
         
-        std::cout<<"Your hand contains: ";
-        game.player.printHand();
-        std::cout<<", which has a value of: "<<game.player.getTotal()
-                <<std::endl;
-        
-        if(game.player.getTotal() >= 21){
-            game.player.stand();
-            break;
+        if(bet){
+            total = game.player.getMoney();
+            if(total == 0){
+                std::cout<<"Since you lost all your money last round, the house"
+                        " would like to give you $100 to keep playing."
+                        <<std::endl;
+                
+                game.player.setMoney(100, true);
+                total = game.player.getMoney();
+            }
+            std::cout<<"You have $"<<total<<", how much of it"
+                    " would you like to bet?: ";
+            do{
+                temp = 0;
+                valid = true;
+                input = "";
+                std::cin>>input;
+                for(int i = 0; i < input.length(); i++){
+                    if(input[i] >= '0' && input[i] <= '9'){
+                        temp = temp * 10 + input[i] - '0';
+                    }
+                    else{
+                        std::cout<<"Invalid input, try again: ";
+                        valid = false;
+                        break;
+                    }
+                }
+                if(!valid){
+                    continue;
+                }
+                if(temp > total){
+                    std::cout<<"You cant bet more than you have! Try again: ";
+                    valid = false;
+                }
+            }while(!valid);
+            std::cout<<temp<<std::endl;
         }
         
-        std::cout<<"Would you like to [h]it, or [s]tand?: ";
+        do{
+            valid = true;
+            input = "";
+
+            std::cout<<"Your hand contains: ";
+            game.player.printHand();
+            std::cout<<", which has a value of: "<<game.player.getTotal()
+                    <<std::endl;
+
+            if(game.player.getTotal() >= 21){
+                game.player.stand();
+                break;
+            }
+
+            std::cout<<"Would you like to [h]it, or [s]tand?: ";
+
+            std::cin>>input;
+            std::cin.ignore();
+            if(input[0] != 'h' && input[0] != 's'){
+                valid = false;
+                do{
+                    std::cout<<"Invalid input try again: ";
+                    std::cin>>input;
+                    std::cout<<input[0]<<std::endl;
+                    std::cin.ignore();
+                    if(input[0] == 'h' || input[0] == 's'){
+                        valid = true;
+                    }
+                }while(!valid);
+            }
+            else if(input[0] == 's'){
+                game.player.stand();
+                game.dealer.hit(game);
+            }
+            else if(input[0] == 'h'){
+                game.player++;
+                game.player.hit(game);
+            }
+            else{
+                std::cout<<"You need better input validation :^)"<<std::endl;
+                exit(EXIT_FAILURE);
+            }        
+        }while(input[0] == 'h');
+    
+        if(game.player.isBusted()){
+            std::cout<<"Busted! You went over 21!"<<std::endl;
+            won = false;
+            game.player.setMoney(temp, won);
+        }
+        else if(game.player.hasBJ()){
+            std::cout<<"You win by default with a score of 21!"<<std::endl;
+            won = true;
+            game.player.setMoney(temp, won);
+        }
+        else if(game.dealer.isBusted()){
+            std::cout<<"The dealer busted! You win!"<<std::endl;
+            won = true;
+            game.player.setMoney(temp, won);
+        }
+        else{
+            if(game.player.getTotal() > game.dealer.getTotal()){
+                std::cout<<"You win! Your total was greater than the dealers"<<std::endl;
+                won = true;
+                game.player.setMoney(temp, won);
+            }
+            else{
+                std::cout<<"You lose! Your total was less than the dealers which had: ";
+                std::cout<<game.dealer.getTotal();
+                won = false;
+                game.player.setMoney(temp, won);
+            }
+        }
+        
+        input = "";
+        std::cout<<std::endl<<std::endl<<std::endl;
+        std::cout<<"Would you like to play again? y/n: ";
         
         std::cin>>input;
         std::cin.ignore();
-        if(input[0] != 'h' && input[0] != 's'){
-            valid = false;
-            do{
-                std::cout<<"Invalid input try again: ";
-                std::cin>>input;
-                std::cout<<input[0]<<std::endl;
-                std::cin.ignore();
-                if(input[0] == 'h' || input[0] == 's'){
-                    valid = true;
-                }
-            }while(!valid);
-        }
-        else if(input[0] == 's'){
-            game.player.stand();
-            game.dealer.hit(game);
-        }
-        else if(input[0] == 'h'){
-            game.player++;
-            game.player.hit(game);
-        }
-        else{
-            std::cout<<"You need better input validation :^)"<<std::endl;
+
+        if(input[0] != 'y' && input[0] != 'Y'){
+            std::cout<<"Okay, cya later!";
             exit(EXIT_FAILURE);
-        }        
-    }while(input[0] == 'h');
-    
-    if(game.player.isBusted()){
-        std::cout<<"Busted! You went over 21!"<<std::endl;
-    }
-    else if(game.player.hasBJ()){
-        std::cout<<"You win by default with a score of 21!"<<std::endl;
-    }
-    else if(game.dealer.isBusted()){
-        std::cout<<"The dealer busted! You win!"<<std::endl;
-    }
-    else{
-        if(game.player.getTotal() > game.dealer.getTotal()){
-            std::cout<<"You win! Your total was greater than the dealers"<<std::endl;
         }
         else{
-            std::cout<<"You lose! Your total was less than the dealers which had: ";
-            std::cout<<game.dealer.getTotal();
+            pAgain = true;
+            game.reset();
+            game.player.reset(game);
+            game.dealer.reset(game);
         }
-    }
+    }while(pAgain);
+    
 }
 
 void banner(){
