@@ -95,19 +95,21 @@ void Dealer<T>::chkTotal(){
     
     this->total = total; 
 }
-
+// fills the hand with 2 starting cards
 template<class T>
 void Dealer<T>::genHand(const Game &game){
     this->hand[0] = this->genCard(game);
     this->hand[1] = this->genCard(game);
 }
 
+// used for debugging, prints the hand out stdout 
 template<class T>
 void Dealer<T>::prntTotal(){
     chkTotal();
     std::cout<<this->total;
 }
 
+// Follows the rules required for a dealer playing blackjack, hit until >= 17
 template<class T>
 void Dealer<T>::hit(const Game& game){
     while(this->total < 17){
@@ -125,12 +127,14 @@ void Dealer<T>::hit(const Game& game){
     }
 }
 
+// Accessor for the value of the dealers hand
 template<class T>
 int Dealer<T>::getTotal(){
     chkTotal();
     return this->total;
 }
 
+// sets flags if the dealer goes over 21
 template<class T>
 bool Dealer<T>::isBusted(){
     chkTotal();
@@ -142,6 +146,7 @@ bool Dealer<T>::isBusted(){
     }
 }
 
+// resets the dealers hand and flags if the player wants to play another round
 template<class T>
 void Dealer<T>::reset(const Game &game){
     this->hand = nullptr;

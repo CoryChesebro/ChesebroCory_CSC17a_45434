@@ -10,6 +10,7 @@
 #include "Game.h"
 
 template<class T>
+// ---- example of friend function and inheritance all in one ----
 // Function returns a char which is a card that can be put into the players hand
 char Player<T>::genCard(const Game &game){
     bool valid;

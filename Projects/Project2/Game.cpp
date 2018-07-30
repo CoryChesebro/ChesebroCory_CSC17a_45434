@@ -46,6 +46,7 @@ Game::~Game() {
     delete [] deck;
 }
 
+// resets the global game deck if the player wants to play another round
 void Game::reset(){
     Game game;
     this->deck = game.deck;

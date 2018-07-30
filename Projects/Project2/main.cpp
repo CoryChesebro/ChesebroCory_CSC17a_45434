@@ -22,11 +22,14 @@ int main() {
 }
 
 void gmLoop(Game &game){
+    // greeting to the game
     banner();
     
+    // initialize player and dealers hands
     game.player.genHand(game);
     game.dealer.genHand(game);
     
+    // necessary variables for the game to run 
     std::string input;
     int total;
     int temp = 0;
@@ -35,6 +38,7 @@ void gmLoop(Game &game){
     bool pAgain;
     bool bet = false;
     
+    // determine if user wants betting enabled or not
     std::cout<<"Would you like betting to be available during your game?: y/n ";
     std::cin>>input;
     std::cin.ignore();
@@ -48,8 +52,7 @@ void gmLoop(Game &game){
     
     input = "";
     
-
-    
+    // game loop used if the player wants to do multiple rounds
     do{
         pAgain = false;
         won = false;
@@ -66,6 +69,8 @@ void gmLoop(Game &game){
             }
             std::cout<<"You have $"<<total<<", how much of it"
                     " would you like to bet?: ";
+            
+            // input validation for bet amount
             do{
                 temp = 0;
                 valid = true;
@@ -89,9 +94,9 @@ void gmLoop(Game &game){
                     valid = false;
                 }
             }while(!valid);
-            std::cout<<temp<<std::endl;
         }
         
+        // main game loop that contains game logic
         do{
             valid = true;
             input = "";
@@ -112,6 +117,8 @@ void gmLoop(Game &game){
             std::cin.ignore();
             if(input[0] != 'h' && input[0] != 's'){
                 valid = false;
+                
+                // input validation for player moves
                 do{
                     std::cout<<"Invalid input try again: ";
                     std::cin>>input;
@@ -136,6 +143,7 @@ void gmLoop(Game &game){
             }        
         }while(input[0] == 'h');
     
+        // if else structure to determine game outcome
         if(game.player.isBusted()){
             std::cout<<"Busted! You went over 21!"<<std::endl;
             won = false;
@@ -165,6 +173,7 @@ void gmLoop(Game &game){
             }
         }
         
+        // asks player if they would like to play again to get more money
         input = "";
         std::cout<<std::endl<<std::endl<<std::endl;
         std::cout<<"Would you like to play again? y/n: ";
@@ -186,6 +195,7 @@ void gmLoop(Game &game){
     
 }
 
+// outputs rules and necessary info
 void banner(){
     std::string input;
     

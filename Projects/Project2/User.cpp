@@ -10,10 +10,10 @@
 #include "Game.h"
 
 // Default constructor
-
 template<class T>
 User<T>::User() {
-
+    //sets necessary flags and initializes necessary variables
+    
     this->bust = false;
     
     this->bj = false;
@@ -61,11 +61,13 @@ void User<T>::operator--() {
 
 }
 
+// adds a card to the newly created space by the ++ operator
 template<class T>
 void User<T>::hit(const Game &game){
     this->hand[this->size - 1] = this->genCard(game);
 }
 
+// sets necessary flags for game ending comparisons
 template<class T>
 void User<T>::stand(){
     if(this->total > 21){
@@ -76,6 +78,7 @@ void User<T>::stand(){
     }
 }
 
+// sets the players total value using a switch case to correspond cards to value
 template<class T>
 void User<T>::chkTotal(){
     int total = 0;
@@ -107,24 +110,28 @@ void User<T>::chkTotal(){
     this->total = total;
 }
 
+// used for debugging
 template<class T>
 void User<T>::prntTotal(){
     chkTotal();
     std::cout<<this->total;
 }
 
+// initial hand generation
 template<class T>
 void User<T>::genHand(const Game &game){
     this->hand[0] = this->genCard(game);
     this->hand[1] = this->genCard(game);
 }
 
+// returns total of the players hand
 template<class T>
 int User<T>::getTotal(){
     chkTotal();
     return this->total;
 }
 
+// used for debugging
 template<class T>
 void User<T>::printHand(){
     for(int i = 0; i < this->size; i++){
@@ -132,21 +139,25 @@ void User<T>::printHand(){
     }
 }
 
+// returns flag to determine if player busted
 template<class T>
 bool User<T>::isBusted(){
     return this->bust;
 }
 
+// returns flag to determine if player got blackjack
 template<class T>
 bool User<T>::hasBJ(){
     return this->bj;
 }
 
+// accessor for money variable
 template<class T>
 T User<T>::getMoney(){
     return this->money;
 }
 
+// used to control money while betting
 template<class T>
 void User<T>::setMoney(T bet, bool won){
     if(this->bust || !won){
@@ -160,6 +171,7 @@ void User<T>::setMoney(T bet, bool won){
     }
 }
 
+// resets player if they want to play a new round while keeping their money
 template<class T>
 void User<T>::reset(const Game &game){
     this->hand = nullptr;
